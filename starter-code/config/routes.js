@@ -8,6 +8,11 @@ var passport = require("passport");
 var usersController = require('../controllers/users');
 var staticsController = require('../controllers/statics');
 
+function authenticatedUser(req, res, next) {
+	if (req.isAuthenticated()) return next();
+	res.redirect('/');
+};
+
 router.route('/')
   .get(staticsController.home);
 
@@ -22,4 +27,7 @@ router.route('/login')
 router.route("/logout")
   .get(usersController.getLogout)
 
-module.exports = router
+router.route("/secret")
+	.get(authenticatedUser, usersController.secret)
+
+module.exports = router;

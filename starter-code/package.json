@@ -26,5 +26,7 @@
     "passport-twitter": "~1.0.2"
   },
   "author": "gerry Mathe",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {},
+  "keywords": []
 }
